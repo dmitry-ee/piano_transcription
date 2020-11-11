@@ -2,8 +2,8 @@ import argparse
 from piano_transcription_inference import PianoTranscription, sample_rate, load_audio
 
 parser = argparse.ArgumentParser()
-parser.add_argument("mp3_path", type=str, required=True)
-parser.add_argument("midi_path", type=str, required=True)
+parser.add_argument("mp3_path", type=str)
+parser.add_argument("midi_path", type=str)
 parser.add_argument("--device", type=str, required=False, default="cuda")
 parser.add_argument("--mono", type=bool, required=False, default=True)
 
