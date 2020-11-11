@@ -11,14 +11,15 @@ build:
 build-gpu:
   just _build {{image_name}}-gpu Dockerfile-gpu
 
-run IMAGE_NAME=(image_name):
+run IMAGE_NAME=(image_name) ARGS="":
   docker run -it --rm --name {{container_name}} \
+    {{ARGS}} \
     -v $(pwd):/app \
     -v $(pwd)/data:/root/piano_transcription_inference_data/ \
     {{image_repo}}/{{IMAGE_NAME}}:{{image_version}} bash
 
 run-gpu:
-  just run {{image_name}}-gpu
+  just run {{image_name}}-gpu "--runtime=nvidia"
 
 clean:
   docker images | grep none | awk '{ print $3 }' | xargs -I{} docker rmi -f {}
