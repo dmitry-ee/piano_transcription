@@ -8,6 +8,7 @@ parser.add_argument("--device", type=str, required=False, default="cuda")
 parser.add_argument("--mono", type=bool, required=False, default=True)
 
 args = parser.parse_args()
+print(args)
 
 # Load audio
 (audio, err) = load_audio(args.mp3_path, sr=sample_rate, mono=args.mono)
