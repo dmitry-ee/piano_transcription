@@ -5,9 +5,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument("mp3_path", type=str)
 parser.add_argument("midi_filename", type=str)
 parser.add_argument("--device", type=str, required=False, default="cuda")
-parser.add_argument("--mono", type=bool, required=False, default=True)
+parser.add_argument("--stereo", type=str, required=False)
 
 args = parser.parse_args()
+args.mono = False if args.stereo else True
 print(args)
 
 # Load audio
