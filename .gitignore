@@ -1,7 +1,6 @@
-*
-!*/
-!*.*
-*.hdf5
 *.pyc
 __pycache__
-
+.DS_Store
+resources/*
+result/*
+data/*
